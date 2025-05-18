@@ -1,0 +1,55 @@
+{% load static%} <!--Pagina base de la app-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Deustotil</title>
+</head>
+<body>
+    <header>
+        <a href="{% url 'index' %}">
+        </a>
+        <section>
+            <button>
+                <a href="{% url 'lista_empleado' %}">Empleados</a>
+            </button>
+            <button>
+                <a href="{% url 'lista_cliente' %}">Clientes</a>
+            </button>
+            <button>
+                <a href="{% url 'lista_proyecto' %}">Proyectos</a>
+            </button>
+            <button>
+                <a href="{% url 'lista_tarea' %}">Tareas</a>
+            </button>
+    </header>
+    <article>
+        {% block content %}
+        {% endblock %}
+    </article>
+    <footer>
+        <section>
+        </section>
+        <section>
+            <h3>Enlaces rápidos</h3>
+            <div class="columns">
+                <div class="column">
+                    <ul>
+                        <li><a href="{% url 'index' %}">Inicio</a></li>
+                        <li><a href="{% url 'lista_empleado' %}">Empleados</a></li>
+                        <li><a href="{% url 'lista_cliente' %}">Clientes</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <ul>
+                        <li><a href="{% url 'lista_proyecto' %}">Proyectos</a></li>
+                        <li><a href="{% url 'lista_tarea' %}">Tareas</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section>
+            
+        </section>
+    </footer>
+</body>
+</html>

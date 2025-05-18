@@ -23,17 +23,17 @@ class CreateClienteView(CreateView):
     model = Cliente
     form_class = ClienteFormulario
     template_name = 'cliente_formulario.html'
-    success_url = reverse_lazy('cliente')
+    success_url = reverse_lazy('lista_cliente')
 
 class DeleteClienteView(DeleteView):
     model = Cliente
-    success_url = reverse_lazy('cliente')
+    success_url = reverse_lazy('lista_cliente')
 
 class UpdateClienteView(UpdateView):
     model = Cliente
     form_class = ClienteFormulario
     template_name = 'cliente_formulario.html'
-    success_url = reverse_lazy('cliente')
+    success_url = reverse_lazy('lista_cliente')
 
 
 
@@ -48,17 +48,17 @@ class CreateEmpleadoView(CreateView):
     model = Empleado
     form_class = EmpleadoFormulario
     template_name = 'empleado_formulario.html'
-    success_url = reverse_lazy('empleados')
+    success_url = reverse_lazy('lista_empleado')
 
 class DeleteEmpleadoView(DeleteView):
     model = Empleado
-    success_url = reverse_lazy('empleados')
+    success_url = reverse_lazy('lista_empleado')
 
 class UpdateEmpleadoView(UpdateView):
     model = Empleado
     form_class = EmpleadoFormulario
     template_name = 'empleado_formulario.html'
-    success_url = reverse_lazy('empleados')
+    success_url = reverse_lazy('lista_empleado')
 
 
 
@@ -73,17 +73,17 @@ class CreateTareaView(CreateView):
     model = Tarea
     form_class = TareaFormulario
     template_name = 'tarea_formulario.html'
-    success_url = reverse_lazy('tarea')
+    success_url = reverse_lazy('lista_tarea')
 
 class DeleteTareaView(DeleteView):
     model = Tarea
-    success_url = reverse_lazy('tarea')
+    success_url = reverse_lazy('lista_tarea')
 
 class UpdateTareaView(UpdateView):
     model = Tarea
     form_class = TareaFormulario
     template_name = 'tarea_formulario.html'
-    success_url = reverse_lazy('tarea')
+    success_url = reverse_lazy('lista_tarea')
 
 
 
@@ -99,15 +99,15 @@ class CreateProyectoView(CreateView):
     model = Proyecto
     form_class = ProyectoFormulario
     template_name = 'proyecto_formulario.html'
-    success_url = reverse_lazy('proyecto')
+    success_url = reverse_lazy('lista_proyecto')
 
 class DeleteProyectoView(DeleteView):
     model = Proyecto
-    success_url = reverse_lazy('proyecto')
+    success_url = reverse_lazy('lista_proyecto')
 
 class UpdateProyectoView(UpdateView):
     model = Proyecto
     form_class = ProyectoFormulario
     template_name = 'proyecto_formulario.html'
-    success_url = reverse_lazy('proyecto')
+    success_url = reverse_lazy('lista_proyecto')
 
