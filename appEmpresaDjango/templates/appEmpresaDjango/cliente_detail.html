@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="contenido">
+    <h2>{{ cliente.nombre }} {{lista_cliente.apellidos}}</h2>
+    <h3><strong>DNI:</strong> {{ lista_cliente.dni }}</h3>
+    <p><strong>Email:</strong> {{lista_cliente.email}}</p>
+    <p><strong>Número de teléfono:</strong> {{lista_cliente.telefono}}</p>
+    <p><strong>Tareas:</strong></p>
+    <ul>
+    {% for lista_tarea in cliente.proyecto_set.all %}  
+        <li>
+            <a href="{% url 'detalles_tarea' lista_proyecto.pk %}">{{ lista_proyecto.nombre }}</a>
+        </li>
+    {% empty %} 
+        <li>
+            No tiene ningun proyecto. Vuelva cuando tenga uno.
+        </li>
+    {% endfor %}
+    </ul>    
+
+    <button><a href="{% url 'borrar_cliente' lista_cliente.id %}">Borrar cliente</a></button>
+    <button><a href="{% url 'modificar_cliente' lista_cliente.id %}">Modificar cliente</a></button>
+</section>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="contenido">
+    <h2>Proyectos:</h2>
+    <ul>
+    {% for lista_proyecto in object_list %}
+        <li>    
+            <a href="{% url 'detalles_proyecto' lista_proyecto.id %}">{{ lista_proyecto.nombre}}</a>
+        </li>
+    {% endfor %}
+    </ul>
+    <button><a href="{% url 'crear_proyecto'%}">Crear nuevo proyecto</a></button>
+</section>
+{% endblock %}

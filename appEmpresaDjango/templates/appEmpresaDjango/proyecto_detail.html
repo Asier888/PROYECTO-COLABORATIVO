@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="contenido">
+    <h1>{{ lista_proyecto.nombre }} </h1>
+    <p><strong>Descripción:</strong> {{lista_proyecto.descripcion}}</p>
+    <p><strong>Fecha de inicio:</strong> {{lista_proyecto.fecha_inicio}}</p>
+    <p><strong>Fecha de fin:</strong> {{lista_proyecto.fecha_fin}}</p>
+    <p><strong>Presupuesto:</strong> {{lista_proyecto.presupuesto}}</p>
+    <p><strong>Clientes:</strong></p>{{lista_proyecto.cliente}}
+  
+    <button><a href="{% url 'borrar_proyecto' lista_proyecto.id %}">Borrar proyecto</a></button>
+    <button><a href="{% url 'modificar_proyecto' lista_proyecto.id %}">Editar proyecto</a></button>
+</section>
+{% endblock %}

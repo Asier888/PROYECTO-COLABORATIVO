@@ -5,7 +5,7 @@
     <ul>
     {% for lista_cliente in object_list %}
         <li>    
-            <a href="{% url 'detalles_cliente' lista_cliente.id %}">{{ cliente.nombre }} {{cliente.apellidos}} {{cliente.dni}}</a>
+            <a href="{% url 'detalles_cliente' lista_cliente.id %}">{{ lista_cliente.nombre }} {{lista_cliente.apellidos}} {{lista_cliente.dni}}</a>
         </li>
     {% endfor %}
     </ul>

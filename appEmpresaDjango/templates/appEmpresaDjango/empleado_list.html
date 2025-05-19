@@ -5,7 +5,7 @@
     <ul>
     {% for lista_empleado in object_list %}
         <li>    
-            <a href="{% url 'detalles_empleado' lista_empleado.id %}">{{ empleado.nombre }} {{empleado.apellidos}} {{empleado.dni}}</a>
+            <a href="{% url 'detalles_empleado' lista_empleado.id %}">{{ lista_empleado.nombre }} {{lista_empleado.apellidos}} </a>
         </li>
     {% endfor %}
     </ul>

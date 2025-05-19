@@ -18,7 +18,7 @@ class ListClienteView(ListView):
 
 class DetailClienteView(DetailView):
     model = Cliente
-
+    context_object_name = 'lista_cliente'
 class CreateClienteView(CreateView):
     model = Cliente
     form_class = ClienteFormulario
@@ -41,7 +41,7 @@ class ListEmpleadoView(ListView):
 
 class DetailEmpleadoView(DetailView):
     model = Empleado
-
+    context_object_name = 'lista_empleado'
 class CreateEmpleadoView(CreateView):
     model = Empleado
     form_class = EmpleadoFormulario
@@ -64,6 +64,7 @@ class ListTareaView(ListView):
 
 class DetailTareaView(DetailView):
     model = Tarea
+    context_object_name = 'lista_tarea'
 
 class CreateTareaView(CreateView):
     model = Tarea
@@ -87,6 +88,7 @@ class ListProyectoView(ListView):
 
 class DetailProyectoView(DetailView):
     model = Proyecto
+    context_object_name = 'lista_proyecto'
 
 class CreateProyectoView(CreateView):
     model = Proyecto
