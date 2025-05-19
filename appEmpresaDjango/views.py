@@ -35,8 +35,6 @@ class UpdateClienteView(UpdateView):
     template_name = 'cliente_formulario.html'
     success_url = reverse_lazy('lista_cliente')
 
-
-
 class ListEmpleadoView(ListView):
     model = Empleado
     queryset = Empleado.objects.all()
@@ -60,8 +58,6 @@ class UpdateEmpleadoView(UpdateView):
     template_name = 'empleado_formulario.html'
     success_url = reverse_lazy('lista_empleado')
 
-
-
 class ListTareaView(ListView):
     model = Tarea
     queryset = Tarea.objects.all()
@@ -84,9 +80,6 @@ class UpdateTareaView(UpdateView):
     form_class = TareaFormulario
     template_name = 'tarea_formulario.html'
     success_url = reverse_lazy('lista_tarea')
-
-
-
 
 class ListProyectoView(ListView):
     model = Proyecto
