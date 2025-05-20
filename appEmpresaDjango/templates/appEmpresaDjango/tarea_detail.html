@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="contenido">
+    <h1>{{ lista_tarea.nombre }} </h1>
+    <p><strong>Descripción:</strong> {{lista_tarea.descripcion}}</p>
+    <p><strong>Fecha de inicio:</strong> {{lista_tarea.fecha_inicio}}</p>
+    <p><strong>Fecha de fin:</strong> {{lista_tarea.fecha_fin}}</p>
+    <p><strong>Presupuesto:</strong> {{lista_tarea.presupuesto}}</p>
+    <p><strong>empleados:</strong></p>{{lista_tarea.empleado}}
+  
+    <button><a href="{% url 'borrar_tarea' lista_tarea.id %}">Borrar tarea</a></button>
+    <button><a href="{% url 'modificar_tarea' lista_tarea.id %}">Editar tarea</a></button>
+</section>
+{% endblock %}
