@@ -1,55 +1,85 @@
-{% load static%} <!--Pagina base de la app-->
+{% load static %} <!--Pagina base de la app-->
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Deustotil</title>
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/estilos.css' %}">
 </head>
-<body>
-    <header>
-        <a href="{% url 'index' %}">
+
+<body style="font-family: Arial, sans-serif; background-color: #f2f2f2; margin: 0; padding: 0;">
+
+    <header style="background-color: #003366; padding: 10px 20px; color: white;">
+        <a href="{% url 'index' %}" style="text-decoration: none; color: white;">
+            <h1 style="margin: 0; color: white; text-align: center;">Deustotil</h1>
         </a>
-        <section>
-            <button>
-                <a href="{% url 'lista_empleado' %}">Empleados</a>
+        <section style="align-items: center; display: flex; justify-content: center; gap: 50px; margin-top: 15px;">
+            <button
+                style="background-color: #0059b3; border: none; margin: 5px; padding: 10px 15px; border-radius: 5px;">
+                <a href="{% url 'lista_empleado' %}" style="color: white; text-decoration: none;">Empleados</a>
             </button>
-            <button>
-                <a href="{% url 'lista_cliente' %}">Clientes</a>
+            <button
+                style="background-color: #0059b3; border: none; margin: 5px; padding: 10px 15px; border-radius: 5px;">
+                <a href="{% url 'lista_cliente' %}" style="color: white; text-decoration: none;">Clientes</a>
             </button>
-            <button>
-                <a href="{% url 'lista_proyecto' %}">Proyectos</a>
+            <button
+                style="background-color: #0059b3; border: none; margin: 5px; padding: 10px 15px; border-radius: 5px;">
+                <a href="{% url 'lista_proyecto' %}" style="color: white; text-decoration: none;">Proyectos</a>
             </button>
-            <button>
-                <a href="{% url 'lista_tarea' %}">Tareas</a>
+            <button
+                style="background-color: #0059b3; border: none; margin: 5px; padding: 10px 15px; border-radius: 5px;">
+                <a href="{% url 'lista_tarea' %}" style="color: white; text-decoration: none;">Tareas</a>
             </button>
+        </section>
     </header>
-    <article>
+
+    <article style="padding: 20px; background-color: white; min-height: 400px;">
         {% block content %}
         {% endblock %}
     </article>
-    <footer>
-        <section>
-        </section>
-        <section>
-            <h3>Enlaces rápidos</h3>
-            <div class="columns">
-                <div class="column">
-                    <ul>
-                        <li><a href="{% url 'index' %}">Inicio</a></li>
-                        <li><a href="{% url 'lista_empleado' %}">Empleados</a></li>
-                        <li><a href="{% url 'lista_cliente' %}">Clientes</a></li>
-                    </ul>
+    <footer
+        style="background-color: #e6e6e6; padding: 20px; text-align: center; display: flex; flex-direction: column;">
+        <div>
+            <h3 style="color: #0059b3;">¿Necesitas ayuda con un proyecto? Estamos listos para colaborar contigo.</h3>
+        </div>
+
+        <form method="POST"
+            style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 30px; font-family: Arial, sans-serif;">
+            {% csrf_token %}
+            <div style="display: flex; gap: 30px; width: 80%; justify-content: center;">
+                <div style="display: flex; flex-direction: column; width: 100%;">
+                    <label for="nombre"
+                        style="margin-bottom: 5px; color: #003366; font-weight: bold; font-size: 16px;">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required
+                        style="padding: 6px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px;">
                 </div>
-                <div class="column">
-                    <ul>
-                        <li><a href="{% url 'lista_proyecto' %}">Proyectos</a></li>
-                        <li><a href="{% url 'lista_tarea' %}">Tareas</a></li>
-                    </ul>
+                <div style="display: flex; flex-direction: column; width: 100%;">
+                    <label for="apellidos"
+                        style="margin-bottom: 5px; color: #003366; font-weight: bold; font-size: 16px;">Apellido</label>
+                    <input type="text" id="apellidos" name="apellidos" required
+                        style="padding: 6px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px;">
                 </div>
             </div>
-        </section>
-        <section>
-            
-        </section>
+            <div style="width: 80%; display: flex; flex-direction: column;">
+                <label for="descripcion"
+                    style="margin-bottom: 5px; color: #003366; font-weight: bold; font-size: 16px;">Descripción del
+                    proyecto:</label>
+                <textarea id="descripcion" name="descripcion" rows="5" required
+                    style="padding: 8px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px;"></textarea>
+            </div>
+            <button type="submit"
+                style="background-color: #0059b3; color: white; padding: 12px 30px; font-size: 16px; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s;">ENVIAR</button>
+        </form>
+
+        <div style=" color: #003366; display: flex; justify-content: center; gap: 50px; margin-top: 10px;">
+            <p>📞 <strong>Teléfono:</strong> +34 123 456 789</p>
+            <p>📧 <strong>Email:</strong> contacto@deustotil.com</p>
+            <p>📸 <strong>Instagram:</strong> <a href="https://instagram.com/deustotil" target="_blank"
+                    style="color: #0059b3; text-decoration: none;">@deustotil</a></p>
+        </div>
     </footer>
+
+
 </body>
-</html>
+
+</html

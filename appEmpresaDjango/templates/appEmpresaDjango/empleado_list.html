@@ -1,14 +1,23 @@
 {% extends "base.html" %}
+
 {% block content %}
-<section id="contenido">
-    <h2>Empleados:</h2>
-    <ul>
-    {% for lista_empleado in object_list %}
-        <li>    
-            <a href="{% url 'detalles_empleado' lista_empleado.id %}">{{ lista_empleado.nombre }} {{lista_empleado.apellidos}} </a>
+<section id="contenido" style="max-width: 800px; margin: 30px auto; background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <h2 style="color: #003366; margin-bottom: 20px; border-bottom: 2px solid #0059b3; padding-bottom: 8px;">Empleados</h2>
+
+    <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
+        {% for empleado in object_list %}
+        <li style="padding: 12px 15px; border-bottom: 1px solid #ddd; transition: background-color 0.3s;">
+            <a href="{% url 'detalles_empleado' empleado.id %}" style="color: #0059b3; text-decoration: none; font-weight: 600; display: block;">
+                {{ empleado.nombre }} {{ empleado.apellidos }}
+            </a>
         </li>
-    {% endfor %}
+        {% empty %}
+        <li style="color: #999; font-style: italic;">No hay empleados registrados.</li>
+        {% endfor %}
     </ul>
-    <button><a href="{% url 'crear_empleado'%}">Crear nuevo empleado</a></button>
+
+    <a href="{% url 'crear_empleado' %}" style="display: inline-block; background-color: #0059b3; color: white; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: 600; box-shadow: 0 3px 6px rgba(0,0,0,0.15); transition: background-color 0.3s;">
+        + Crear nuevo empleado
+    </a>
 </section>
 {% endblock %}

@@ -1,14 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-<section id="contenido">
-    <h2>Proyectos:</h2>
-    <ul>
-    {% for lista_proyecto in object_list %}
-        <li>    
-            <a href="{% url 'detalles_proyecto' lista_proyecto.id %}">{{ lista_proyecto.nombre}}</a>
+<section id="contenido" style="max-width: 800px; margin: 30px auto; background: #fff; padding: 25px; border-radius: 8px; ">
+    <h2 style="color: #003366; margin-bottom: 20px; border-bottom: 2px solid #0059b3;">Proyectos:</h2>
+
+    <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
+        {% for lista_proyecto in object_list %}
+        <li style="padding: 12px 15px; border-bottom: 1px solid #ddd;">
+            <a href="{% url 'detalles_proyecto' lista_proyecto.id %}" style="color: #0059b3; text-decoration: none; font-weight: 600; display: block;">
+                {{ lista_proyecto.nombre }}
+            </a>
         </li>
-    {% endfor %}
+        {% empty %}
+        <li style="color: #999; font-style: italic;">No hay proyectos registrados.</li>
+        {% endfor %}
     </ul>
-    <button><a href="{% url 'crear_proyecto'%}">Crear nuevo proyecto</a></button>
+
+    <a href="{% url 'crear_proyecto' %}" style="display: inline-block; background-color: #0059b3; color: white; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: 600;">
+        + Crear nuevo proyecto
+    </a>
 </section>
 {% endblock %}
