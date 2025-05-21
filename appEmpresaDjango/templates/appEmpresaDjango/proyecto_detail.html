@@ -1,14 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-<section id="contenido">
-    <h1>{{ lista_proyecto.nombre }} </h1>
-    <p><strong>Descripción:</strong> {{lista_proyecto.descripcion}}</p>
-    <p><strong>Fecha de inicio:</strong> {{lista_proyecto.fecha_inicio}}</p>
-    <p><strong>Fecha de fin:</strong> {{lista_proyecto.fecha_fin}}</p>
-    <p><strong>Presupuesto:</strong> {{lista_proyecto.presupuesto}}</p>
-    <p><strong>Clientes:</strong></p>{{lista_proyecto.cliente}}
-  
-    <button><a href="{% url 'borrar_proyecto' lista_proyecto.id %}">Borrar proyecto</a></button>
-    <button><a href="{% url 'modificar_proyecto' lista_proyecto.id %}">Editar proyecto</a></button>
+<section id="contenido" style="max-width: 800px; margin: 40px auto; padding: 25px; background-color: #f9f9f9; border-radius: 10px; font-family: Arial, sans-serif;">
+    <h1 style="font-size: 26px; color: #003366; margin-bottom: 20px;">Detalles del Proyecto</h1>
+
+    <p><strong>Nombre:</strong> {{ lista_proyecto.nombre }}</p>
+    <p><strong>Descripción:</strong> {{ lista_proyecto.descripcion }}</p>
+    <p><strong>Fecha de inicio:</strong> {{ lista_proyecto.fecha_inicio }}</p>
+    <p><strong>Fecha de fin:</strong> {{ lista_proyecto.fecha_fin }}</p>
+    <p><strong>Presupuesto:</strong> {{ lista_proyecto.presupuesto }}</p>
+    <p><strong>Cliente:</strong> {{ lista_proyecto.cliente }}</p>
+
+    <div style="margin-top: 30px;">
+        <a href="{% url 'borrar_proyecto' lista_proyecto.id %}" style="background-color: #d9534f; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-right: 10px;">Borrar proyecto</a>
+        <a href="{% url 'modificar_proyecto' lista_proyecto.id %}" style="background-color: #0275d8; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Editar proyecto</a>
+    </div>
 </section>
 {% endblock %}

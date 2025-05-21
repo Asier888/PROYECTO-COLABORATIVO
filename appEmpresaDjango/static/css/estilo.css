@@ -1,0 +1,23 @@
+.header{
+    background-color: #003366; 
+    padding: 10px 20px; 
+    color: white;
+}
+
+.caja_input{
+    padding: 6px; 
+    border-radius: 8px; 
+    border: 1px solid #ccc; 
+    font-size: 14px;       
+}
+
+.nombre_label{
+     margin-bottom: 5px; 
+     color: #003366; 
+     font-weight: bold; 
+     font-size: 16px;
+}
+
+.si{
+     color: #003366; 
+}

@@ -4,7 +4,7 @@
 
 <head>
     <title>Deustotil</title>
-<link rel="stylesheet" type="text/css" href="{% static 'CSS/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
 </head>
 
 <body style="font-family: Arial, sans-serif; background-color: #f2f2f2; margin: 0; padding: 0;">
@@ -14,21 +14,13 @@
             <h1 style="margin: 0; color: white; text-align: center;">Deustotil</h1>
         </a>
         <section style="align-items: center; display: flex; justify-content: center; gap: 50px; margin-top: 15px;">
-            <button
-                style="background-color: #0059b3; border: none; margin: 5px; padding: 10px 15px; border-radius: 5px;">
-                <a href="{% url 'lista_empleado' %}" style="color: white; text-decoration: none;">Empleados</a>
+            <button class="botones_header"> <a href="{% url 'lista_empleado' %}" style="color: white; text-decoration: none;">Empleados</a>
             </button>
-            <button
-                style="background-color: #0059b3; border: none; margin: 5px; padding: 10px 15px; border-radius: 5px;">
-                <a href="{% url 'lista_cliente' %}" style="color: white; text-decoration: none;">Clientes</a>
+            <button class="botones_header"><a href="{% url 'lista_cliente' %}" style="color: white; text-decoration: none;">Clientes</a>
             </button>
-            <button
-                style="background-color: #0059b3; border: none; margin: 5px; padding: 10px 15px; border-radius: 5px;">
-                <a href="{% url 'lista_proyecto' %}" style="color: white; text-decoration: none;">Proyectos</a>
+            <button class="botones_header"><a href="{% url 'lista_proyecto' %}" style="color: white; text-decoration: none;">Proyectos</a>
             </button>
-            <button
-                style="background-color: #0059b3; border: none; margin: 5px; padding: 10px 15px; border-radius: 5px;">
-                <a href="{% url 'lista_tarea' %}" style="color: white; text-decoration: none;">Tareas</a>
+            <button class="botones_header"><a href="{% url 'lista_tarea' %}" style="color: white; text-decoration: none;">Tareas</a>
             </button>
         </section>
     </header>
@@ -71,8 +63,8 @@
                 style="background-color: #0059b3; color: white; padding: 12px 30px; font-size: 16px; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s;">ENVIAR</button>
         </form>
 
-        <div style=" color: #003366; display: flex; justify-content: center; gap: 50px; margin-top: 10px;">
-            <p>📞 <strong>Teléfono:</strong> +34 123 456 789</p>
+        <div style="display: flex; justify-content: center; gap: 50px; margin-top: 10px;">
+            <p class="si">📞 <strong>Teléfono:</strong> +34 123 456 789</p>
             <p>📧 <strong>Email:</strong> contacto@deustotil.com</p>
             <p>📸 <strong>Instagram:</strong> <a href="https://instagram.com/deustotil" target="_blank"
                     style="color: #0059b3; text-decoration: none;">@deustotil</a></p>

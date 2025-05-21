@@ -1,24 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
-<section id="contenido">
-    <h2>{{ cliente.nombre }} {{lista_cliente.apellidos}}</h2>
-    <h3><strong>DNI:</strong> {{ lista_cliente.dni }}</h3>
-    <p><strong>Email:</strong> {{lista_cliente.email}}</p>
-    <p><strong>Número de teléfono:</strong> {{lista_cliente.telefono}}</p>
-    <p><strong>Tareas:</strong></p>
-    <ul>
-    {% for lista_tarea in cliente.proyecto_set.all %}  
-        <li>
-            <a href="{% url 'detalles_tarea' lista_proyecto.pk %}">{{ lista_proyecto.nombre }}</a>
-        </li>
-    {% empty %} 
-        <li>
-            No tiene ningun proyecto. Vuelva cuando tenga uno.
-        </li>
-    {% endfor %}
-    </ul>    
+<section id="contenido" style="max-width: 700px; margin: 40px auto; background-color: #ffffff; padding: 30px; border-radius: 8px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #003366;">
 
-    <button><a href="{% url 'borrar_cliente' lista_cliente.id %}">Borrar cliente</a></button>
-    <button><a href="{% url 'modificar_cliente' lista_cliente.id %}">Modificar cliente</a></button>
+    <h2 style="border-bottom: 3px solid #0059b3; padding-bottom: 10px; margin-bottom: 25px;">
+        {{ cliente.nombre }} {{ lista_cliente.apellidos }}
+    </h2>
+
+    <div style="margin-bottom: 20px; font-size: 16px; line-height: 1.5;">
+        <p><strong>Email:</strong> <a href="mailto:{{ lista_cliente.email }}" style="color: #0059b3; text-decoration: none;">{{ lista_cliente.email }}</a></p>
+        <p><strong>Teléfono:</strong> <a href="tel:{{ lista_cliente.telefono }}" style="color: #0059b3; text-decoration: none;">{{ lista_cliente.telefono }}</a></p>
+    </div>
+
+    <div>
+        <h3 style="margin-bottom: 15px;">Proyectos asignados:</h3>
+        <ul style="list-style-type: disc; padding-left: 20px; color: #333;">
+            {% for proyecto in cliente.proyecto_set.all %}
+                <li style="margin-bottom: 10px;">
+                    <a href="{% url 'detalles_proyecto' proyecto.id %}" style="color: #0059b3; text-decoration: none; font-weight: 600;">
+                        {{ proyecto.nombre }}
+                    </a>
+                </li>
+            {% empty %}
+                <li style="font-style: italic; color: #999;">
+                    No tiene ningún proyecto asignado. Vuelve cuando tenga uno.
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div style="margin-top: 30px; display: flex; gap: 15px;">
+        <a href="{% url 'modificar_cliente' lista_cliente.id %}" 
+           style="flex: 1; background-color: #0059b3; color: white; padding: 12px 0; text-align: center; border-radius: 6px; text-decoration: none; font-weight: 600; transition: background-color 0.3s;">
+            Modificar Cliente
+        </a>
+        <a href="{% url 'borrar_cliente' lista_cliente.id %}" 
+           style="flex: 1; background-color: #d9534f; color: white; padding: 12px 0; text-align: center; border-radius: 6px; text-decoration: none; font-weight: 600; transition: background-color 0.3s;">
+            Borrar Cliente
+        </a>
+    </div>
+
 </section>
 {% endblock %}
