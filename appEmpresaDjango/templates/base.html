@@ -1,4 +1,4 @@
-{% load static %} <!--Pagina base de la app-->
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -9,19 +9,15 @@
 
 <body style="font-family: Arial, sans-serif; background-color: #f2f2f2; margin: 0; padding: 0;">
 
-    <header style="background-color: #003366; padding: 10px 20px; color: white;">
+    <header class="header">
         <a href="{% url 'index' %}" style="text-decoration: none; color: white;">
             <h1 style="margin: 0; color: white; text-align: center;">Deustotil</h1>
         </a>
         <section style="align-items: center; display: flex; justify-content: center; gap: 50px; margin-top: 15px;">
-            <button class="botones_header"> <a href="{% url 'lista_empleado' %}" style="color: white; text-decoration: none;">Empleados</a>
-            </button>
-            <button class="botones_header"><a href="{% url 'lista_cliente' %}" style="color: white; text-decoration: none;">Clientes</a>
-            </button>
-            <button class="botones_header"><a href="{% url 'lista_proyecto' %}" style="color: white; text-decoration: none;">Proyectos</a>
-            </button>
-            <button class="botones_header"><a href="{% url 'lista_tarea' %}" style="color: white; text-decoration: none;">Tareas</a>
-            </button>
+            <a href="{% url 'lista_empleado' %}" class="botones">Empleados</a>
+            <a href="{% url 'lista_cliente' %}" class="botones">Clientes</a>
+            <a href="{% url 'lista_proyecto' %}" class="botones">Proyectos</a>
+            <a href="{% url 'lista_tarea' %}" class="botones">Tareas</a>
         </section>
     </header>
 
@@ -29,6 +25,7 @@
         {% block content %}
         {% endblock %}
     </article>
+
     <footer
         style="background-color: #e6e6e6; padding: 20px; text-align: center; display: flex; flex-direction: column;">
         <div>
@@ -40,29 +37,24 @@
             {% csrf_token %}
             <div style="display: flex; gap: 30px; width: 80%; justify-content: center;">
                 <div style="display: flex; flex-direction: column; width: 100%;">
-                    <label for="nombre"
-                        style="margin-bottom: 5px; color: #003366; font-weight: bold; font-size: 16px;">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" required
-                        style="padding: 6px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px;">
+                    <label for="nombre" class="nombre_label">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required class="input-campo">
                 </div>
                 <div style="display: flex; flex-direction: column; width: 100%;">
-                    <label for="apellidos"
-                        style="margin-bottom: 5px; color: #003366; font-weight: bold; font-size: 16px;">Apellido</label>
-                    <input type="text" id="apellidos" name="apellidos" required
-                        style="padding: 6px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px;">
+                    <label for="apellidos" class="nombre_label">Apellido</label>
+                    <input type="text" id="apellidos" name="apellidos" required class="input-campo">
                 </div>
             </div>
             <div style="width: 80%; display: flex; flex-direction: column;">
-                <label for="descripcion"
-                    style="margin-bottom: 5px; color: #003366; font-weight: bold; font-size: 16px;">Descripción del
-                    proyecto:</label>
+                <label for="descripcion" class="nombre_label">Descripción del proyecto:</label>
                 <textarea id="descripcion" name="descripcion" rows="5" required
                     style="padding: 8px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px;"></textarea>
             </div>
             <button type="submit"
-                style="background-color: #0059b3; color: white; padding: 12px 30px; font-size: 16px; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s;">ENVIAR</button>
+                style="background-color: #0059b3; color: white; padding: 12px 30px; font-size: 16px; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s;">
+                ENVIAR
+            </button>
         </form>
-
         <div style="display: flex; justify-content: center; gap: 50px; margin-top: 10px;">
             <p class="si">📞 <strong>Teléfono:</strong> +34 123 456 789</p>
             <p>📧 <strong>Email:</strong> contacto@deustotil.com</p>
@@ -71,7 +63,6 @@
         </div>
     </footer>
 
-
 </body>
 
-</html
+</html>

@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-<section id="contenido">
-    <h1>¿Quieres eliminar a "{{ lista_empleado.nombre }} {{ lista_empleado.apellidos }}"?</h1>
+<section id="contenido" class="detalle-contenedor">
+    <h1 class="titulo-detalle">¿Quieres eliminar a "{{ lista_empleado.nombre }} {{ lista_empleado.apellidos }}"?</h1>
 
-    <form method="post">
+    <form method="post" style="margin-top: 30px; display: flex; gap: 15px;">
         {% csrf_token %}
-        <button type="submit">Sí, quiero eliminarlo</button>
-        <button><a href="{% url 'lista_empleados' %}">No quiero eliminarlo</a></button>
+        <button type="submit" class="boton-accion boton-borrar">Sí, quiero eliminarlo</button>
+        <a href="{% url 'lista_empleado' %}" class="boton-accion boton-editar">No quiero eliminarlo</a>
     </form>
 </section>
 {% endblock %}

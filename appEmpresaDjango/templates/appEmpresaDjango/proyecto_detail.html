@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-<section id="contenido" style="max-width: 800px; margin: 40px auto; padding: 25px; background-color: #f9f9f9; border-radius: 10px; font-family: Arial, sans-serif;">
-    <h1 style="font-size: 26px; color: #003366; margin-bottom: 20px;">Detalles del Proyecto</h1>
+<section id="contenido" class="detalle-contenedor">
+    <h1 class="titulo-detalle">Detalles del Proyecto</h1>
 
     <p><strong>Nombre:</strong> {{ lista_proyecto.nombre }}</p>
     <p><strong>Descripción:</strong> {{ lista_proyecto.descripcion }}</p>
@@ -11,8 +11,8 @@
     <p><strong>Cliente:</strong> {{ lista_proyecto.cliente }}</p>
 
     <div style="margin-top: 30px;">
-        <a href="{% url 'borrar_proyecto' lista_proyecto.id %}" style="background-color: #d9534f; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-right: 10px;">Borrar proyecto</a>
-        <a href="{% url 'modificar_proyecto' lista_proyecto.id %}" style="background-color: #0275d8; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Editar proyecto</a>
+        <a href="{% url 'borrar_proyecto' lista_proyecto.id %}" class="boton-accion boton-borrar">Borrar proyecto</a>
+        <a href="{% url 'modificar_proyecto' lista_proyecto.id %}" class="boton-accion boton-editar">Editar proyecto</a>
     </div>
 </section>
 {% endblock %}

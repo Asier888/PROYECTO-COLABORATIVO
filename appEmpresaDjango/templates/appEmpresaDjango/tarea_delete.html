@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-<section id="contenido">
-    <h1>¿Quiere eliminar la siguiente tarea: "{{ lista_tarea.nombre }}"?</h1>
-    <form method="post">
+<section id="contenido" class="detalle-contenedor">
+    <h1 class="titulo-detalle">¿Quiere eliminar la siguiente tarea: "{{ lista_tarea.nombre }}"?</h1>
+
+    <form method="post" style="margin-top: 30px; display: flex; gap: 15px;">
         {% csrf_token %}
-        <button type="submit">Sí quiero, eliminarla</button>
-        <button><a href="{% url 'tareas' %}">Cancelar eliminación de tarea</a></button>
+        <button type="submit" class="boton-accion boton-borrar">Sí quiero, eliminarla</button>
+        <a href="{% url 'lista_tarea' %}" class="boton-accion boton-editar">Cancelar eliminación de tarea</a>
     </form>
 </section>
 {% endblock %}

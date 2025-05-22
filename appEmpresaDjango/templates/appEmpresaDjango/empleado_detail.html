@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-<section id="contenido" style="max-width: 800px; margin: 40px auto; padding: 25px; background-color: #f9f9f9; border-radius: 10px; font-family: Arial, sans-serif;">
-    <h1 style="font-size: 26px; color: #003366; margin-bottom: 20px;">Datos del Empleado</h1>
+<section id="contenido" class="detalle-contenedor">
+    <h1 class="titulo-detalle">Datos del Empleado</h1>
 
     <p><strong>Nombre:</strong> {{ lista_empleado.nombre }} {{ lista_empleado.apellidos }}</p>
     <p><strong>DNI:</strong> {{ lista_empleado.dni }}</p>
@@ -18,8 +18,8 @@
     </ul>
 
     <div style="margin-top: 30px;">
-        <a href="{% url 'borrar_empleado' lista_empleado.id %}" style="background-color: #d9534f; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-right: 10px;">Borrar empleado</a>
-        <a href="{% url 'modificar_empleado' lista_empleado.id %}" style="background-color: #0275d8; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Modificar empleado</a>
+        <a href="{% url 'borrar_empleado' lista_empleado.id %}" class="boton-accion boton-borrar">Borrar empleado</a>
+        <a href="{% url 'modificar_empleado' lista_empleado.id %}" class="boton-accion boton-editar">Modificar empleado</a>
     </div>
 </section>
 {% endblock %}

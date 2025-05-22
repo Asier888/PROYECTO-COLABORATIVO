@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
-<section id="contenido" style="max-width: 700px; margin: 40px auto; background: #fff; padding: 30px;">
-    <h2 style="color: #003366; margin-bottom: 25px; font-weight: bold; font-size: 28px;">Tareas</h2>
+<section id="contenido" class="seccion-contenido">
+    <h2 class="titulo-seccion">Tareas</h2>
 
     <ul style="list-style: none; padding: 0; margin-bottom: 35px;">
         {% for lista_tarea in object_list %}
-        <li style="padding: 14px 0; border-bottom: 1px solid #e0e0e0;">
-            <a href="{% url 'detalles_tarea' lista_tarea.id %}" style="color: #0059b3; text-decoration: none; font-size: 18px; font-weight: 600; display: block;">
+        <li class="item-lista">
+            <a href="{% url 'detalles_tarea' lista_tarea.id %}" class="link-lista">
                 {{ lista_tarea.nombre }}    
             </a>
         </li>
         {% empty %}
-        <li style="color: #999; font-style: italic; font-size: 16px; padding: 12px;">No hay tareas registradas.</li>
+        <li class="mensaje-vacio">No hay tareas registradas.</li>
         {% endfor %}
     </ul>
 
-    <a href="{% url 'crear_tarea' %}" style="background-color: #007acc; color: white; padding: 14px 30px; border-radius: 8px; font-weight: 700; font-size: 17px; text-decoration: none; display: inline-block;">
+    <a href="{% url 'crear_tarea' %}" class="boton-nuevo">
         + Crear nueva tarea
     </a>
 </section>

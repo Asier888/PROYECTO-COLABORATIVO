@@ -1,23 +1,107 @@
-.header{
-    background-color: #003366; 
-    padding: 10px 20px; 
+.botones {
+    background-color: #0059b3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.header {
+    background-color: #003366;
+    padding: 10px 20px;
     color: white;
 }
 
-.caja_input{
-    padding: 6px; 
-    border-radius: 8px; 
-    border: 1px solid #ccc; 
-    font-size: 14px;       
+.nombre_label {
+    margin-bottom: 5px;
+    color: #003366;
+    font-weight: bold;
+    font-size: 16px;
 }
 
-.nombre_label{
-     margin-bottom: 5px; 
-     color: #003366; 
-     font-weight: bold; 
-     font-size: 16px;
+.input-campo {
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
 }
 
-.si{
-     color: #003366; 
+.seccion-contenido {
+    max-width: 800px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
 }
+
+.titulo-seccion {
+    color: #003366;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #0059b3;
+}
+
+.item-lista {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.link-lista {
+    color: #0059b3;
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+}
+
+.mensaje-vacio {
+    color: #999;
+    font-style: italic;
+}
+
+.boton-nuevo {
+    display: inline-block;
+    background-color: #0059b3;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.detalle-contenedor {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.titulo-detalle {
+    font-size: 26px;
+    color: #003366;
+    margin-bottom: 20px;
+}
+
+.boton-accion {
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    color: white;
+    margin-right: 10px;
+}
+
+.boton-borrar {
+    background-color: #d9534f;
+}
+
+.boton-editar {
+    background-color: #0275d8;
+}
+
+
