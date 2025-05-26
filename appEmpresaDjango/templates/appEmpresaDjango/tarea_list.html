@@ -2,12 +2,31 @@
 {% block content %}
 <section id="contenido" class="seccion-contenido">
     <h2 class="titulo-seccion">Tareas</h2>
+    <form method="get" action="{% url 'lista_tarea' %}">
+        <label for="estado">Estado:</label>
+        <select name="estado" id="estado">
+            <option value="">Todos</option>
+            <option value="abierta" {% if request.GET.estado == 'abierta' %}selected{% endif %}>Abierta</option>
+            <option value="asignada" {% if request.GET.estado == 'asignada' %}selected{% endif %}>Asignada</option>
+            <option value="en_proceso" {% if request.GET.estado == 'en_proceso' %}selected{% endif %}>En proceso</option>
+            <option value="finalizada" {% if request.GET.estado == 'finalizada' %}selected{% endif %}>Finalizada</option>
+        </select>
 
+        <label for="prioridad">Prioridad:</label>
+        <select name="prioridad" id="prioridad">
+            <option value="">Todas</option>
+            <option value="alta" {% if request.GET.prioridad == 'alta' %}selected{% endif %}>Alta</option>
+            <option value="media" {% if request.GET.prioridad == 'media' %}selected{% endif %}>Media</option>
+            <option value="baja" {% if request.GET.prioridad == 'baja' %}selected{% endif %}>Baja</option>
+        </select>
+
+        <button type="submit">Buscar</button>
+    </form>
     <ul style="list-style: none; padding: 0; margin-bottom: 35px;">
         {% for lista_tarea in object_list %}
         <li class="item-lista">
             <a href="{% url 'detalles_tarea' lista_tarea.id %}" class="link-lista">
-                {{ lista_tarea.nombre }}    
+                {{ lista_tarea.nombre }} - Estado: {{ lista_tarea.estado }} - Prioridad: {{ lista_tarea.prioridad }}   
             </a>
         </li>
         {% empty %}

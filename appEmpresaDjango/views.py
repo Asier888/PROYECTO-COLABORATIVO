@@ -76,8 +76,20 @@ class UpdateEmpleadoView(LoginRequiredMixin, UpdateView):
 
 class ListTareaView(LoginRequiredMixin, ListView):
     model = Tarea
-    queryset = Tarea.objects.all()
+    template_name = 'tarea_list.html'
     login_url = '/login/'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        estado = self.request.GET.get('estado')
+        prioridad = self.request.GET.get('prioridad')
+
+        if estado:
+            queryset = queryset.filter(estado=estado)
+        if prioridad:
+            queryset = queryset.filter(prioridad=prioridad)
+
+        return queryset
 
 class DetailTareaView(LoginRequiredMixin, DetailView):
     model = Tarea
