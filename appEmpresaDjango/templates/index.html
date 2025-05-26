@@ -1,17 +1,18 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <section id="indice">
-        <section class="opciones">
-            <a href="{% url 'lista_empleado' %}">Empleados</a>
-        </section>
-        <section class="opciones">
-            <a href="{% url 'lista_cliente' %}">Clientes</a>
-        </section>
-        <section class="opciones">
-            <a href="{% url 'lista_proyecto' %}">Proyectos</a>
-        </section>
-        <section class="opciones">
-            <a href="{% url 'lista_tarea' %}">Tareas</a>
-        </section>
+<section id="indice">
+    <section class="opciones">
+        <a href="{% url 'lista_empleado' %}">Empleados</a>
+    </section>
+    <section class="opciones">
+        <a href="{% url 'lista_cliente' %}">Clientes</a>
+    </section>
+    <section class="opciones">
+        <a href="{% url 'lista_proyecto' %}">Proyectos</a>
+    </section>
+    <section class="opciones">
+        <a href="{% url 'lista_tarea' %}">Tareas</a>
+    </section>
+</section>
 {% endblock %}
