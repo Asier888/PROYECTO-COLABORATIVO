@@ -1,108 +1,135 @@
 from django.shortcuts import render
-
-# Create your views here.
-from django.http import HttpResponse
 from django.urls import reverse_lazy
-from django.views import View
-from django.conf import settings
-from .models import Cliente, Empleado, Tarea, Proyecto
 from django.views.generic import DetailView, ListView, CreateView, DeleteView, UpdateView
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+from .models import Cliente, Empleado, Tarea, Proyecto
 from .forms import EmpleadoFormulario, ClienteFormulario, ProyectoFormulario, TareaFormulario
 
 def index(request):
     return render(request, 'index.html')
 
-class ListClienteView(ListView):
+class RegistroUsuarioView(CreateView):
+    form_class = UserCreationForm
+    template_name = 'registration/registro.html'
+    success_url = '/'
+
+class ListClienteView(LoginRequiredMixin, ListView):
     model = Cliente
     queryset = Cliente.objects.all()
+    login_url = '/login/'
 
-class DetailClienteView(DetailView):
+class DetailClienteView(LoginRequiredMixin, DetailView):
     model = Cliente
     context_object_name = 'lista_cliente'
-class CreateClienteView(CreateView):
+    login_url = '/login/'
+
+class CreateClienteView(LoginRequiredMixin, CreateView):
     model = Cliente
     form_class = ClienteFormulario
     template_name = 'cliente_formulario.html'
     success_url = reverse_lazy('lista_cliente')
+    login_url = '/login/'
 
-class DeleteClienteView(DeleteView):
+class DeleteClienteView(LoginRequiredMixin, DeleteView):
     model = Cliente
     success_url = reverse_lazy('lista_cliente')
+    login_url = '/login/'
 
-class UpdateClienteView(UpdateView):
+class UpdateClienteView(LoginRequiredMixin, UpdateView):
     model = Cliente
     form_class = ClienteFormulario
     template_name = 'cliente_formulario.html'
     success_url = reverse_lazy('lista_cliente')
+    login_url = '/login/'
 
-class ListEmpleadoView(ListView):
+class ListEmpleadoView(LoginRequiredMixin, ListView):
     model = Empleado
     queryset = Empleado.objects.all()
+    login_url = '/login/'
 
-class DetailEmpleadoView(DetailView):
+class DetailEmpleadoView(LoginRequiredMixin, DetailView):
     model = Empleado
     context_object_name = 'lista_empleado'
-class CreateEmpleadoView(CreateView):
+    login_url = '/login/'
+
+class CreateEmpleadoView(LoginRequiredMixin, CreateView):
     model = Empleado
     form_class = EmpleadoFormulario
     template_name = 'empleado_formulario.html'
     success_url = reverse_lazy('lista_empleado')
+    login_url = '/login/'
 
-class DeleteEmpleadoView(DeleteView):
+class DeleteEmpleadoView(LoginRequiredMixin, DeleteView):
     model = Empleado
     success_url = reverse_lazy('lista_empleado')
+    login_url = '/login/'
 
-class UpdateEmpleadoView(UpdateView):
+class UpdateEmpleadoView(LoginRequiredMixin, UpdateView):
     model = Empleado
     form_class = EmpleadoFormulario
     template_name = 'empleado_formulario.html'
     success_url = reverse_lazy('lista_empleado')
+    login_url = '/login/'
 
-class ListTareaView(ListView):
+class ListTareaView(LoginRequiredMixin, ListView):
     model = Tarea
     queryset = Tarea.objects.all()
+    login_url = '/login/'
 
-class DetailTareaView(DetailView):
+class DetailTareaView(LoginRequiredMixin, DetailView):
     model = Tarea
     context_object_name = 'lista_tarea'
+    login_url = '/login/'
 
-class CreateTareaView(CreateView):
+class CreateTareaView(LoginRequiredMixin, CreateView):
     model = Tarea
     form_class = TareaFormulario
     template_name = 'tarea_formulario.html'
     success_url = reverse_lazy('lista_tarea')
+    login_url = '/login/'
 
-class DeleteTareaView(DeleteView):
+class DeleteTareaView(LoginRequiredMixin, DeleteView):
     model = Tarea
     success_url = reverse_lazy('lista_tarea')
+    login_url = '/login/'
 
-class UpdateTareaView(UpdateView):
+class UpdateTareaView(LoginRequiredMixin, UpdateView):
     model = Tarea
     form_class = TareaFormulario
     template_name = 'tarea_formulario.html'
     success_url = reverse_lazy('lista_tarea')
+    login_url = '/login/'
 
-class ListProyectoView(ListView):
+class ListProyectoView(LoginRequiredMixin, ListView):
     model = Proyecto
     queryset = Proyecto.objects.all()
+    login_url = '/login/'
 
-class DetailProyectoView(DetailView):
+class DetailProyectoView(LoginRequiredMixin, DetailView):
     model = Proyecto
     context_object_name = 'lista_proyecto'
+    login_url = '/login/'
 
-class CreateProyectoView(CreateView):
+class CreateProyectoView(LoginRequiredMixin, CreateView):
     model = Proyecto
     form_class = ProyectoFormulario
     template_name = 'proyecto_formulario.html'
     success_url = reverse_lazy('lista_proyecto')
+    login_url = '/login/'
 
-class DeleteProyectoView(DeleteView):
+class DeleteProyectoView(LoginRequiredMixin, DeleteView):
     model = Proyecto
     success_url = reverse_lazy('lista_proyecto')
+    login_url = '/login/'
 
-class UpdateProyectoView(UpdateView):
+class UpdateProyectoView(LoginRequiredMixin, UpdateView):
     model = Proyecto
     form_class = ProyectoFormulario
     template_name = 'proyecto_formulario.html'
     success_url = reverse_lazy('lista_proyecto')
+    login_url = '/login/'
+
 

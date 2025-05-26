@@ -1,5 +1,8 @@
 from django.urls import path
 from . import views
+from django.contrib.auth import views as auth_views
+from .views import RegistroUsuarioView
+
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -27,4 +30,8 @@ urlpatterns = [
     path('<int:pk>/borrar_proyecto', views.DeleteProyectoView.as_view(), name='borrar_proyecto'),
     path('crear_proyecto', views.CreateProyectoView.as_view(), name='crear_proyecto' ),
     path('<int:pk>/modificar_proyecto', views.UpdateProyectoView.as_view(), name='modificar_proyecto'),
+
+    path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='index'), name='logout'),
+    path('registro/', RegistroUsuarioView.as_view(), name='registro'),
 ]
