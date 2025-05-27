@@ -1,30 +1,43 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 <section id="contenido" class="detalle-contenedor">
     <h1 class="titulo-detalle">{{ lista_tarea.nombre }}</h1>
 
-    <p><strong>Descripción:</strong> {{ lista_tarea.descripcion }}</p>
-    <p><strong>Fecha de inicio:</strong> {{ lista_tarea.fecha_inicio }}</p>
-    <p><strong>Fecha de fin:</strong> {{ lista_tarea.fecha_fin }}</p>
-    <p><strong>Prioridad:</strong> {{ lista_tarea.prioridad }}</p>
-    <p><strong>Estado:</strong> {{ lista_tarea.estado }}</p>
-    <p><strong>Presupuesto:</strong> {{ lista_tarea.presupuesto }}</p>
+    <p><strong>Pertenece al proyecto: </strong> {{ lista_tarea.proyecto }}</p>
+    <p><strong>Descripción: </strong> {{ lista_tarea.descripcion }}</p>
+    <p><strong>Fecha de inicio: </strong> {{ lista_tarea.fecha_inicio }}</p>
+    <p><strong>Fecha de fin: </strong> {{ lista_tarea.fecha_fin }}</p>
+    <p><strong>Prioridad: </strong> {{ lista_tarea.prioridad }}</p>
+    <p><strong>Estado: </strong> {{ lista_tarea.estado }}</p>
 
     <p><strong>Empleados:</strong>
         {% if lista_tarea.empleado.all %}
-            <ul style="padding-left: 20px;">
-                {% for emp in lista_tarea.empleado.all %}
-                    <li>{{ emp.nombre }} {{ emp.apellidos }}</li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <span style="color: #777;">No hay empleados asignados.</span>
-        {% endif %}
+    <ul style="padding-left: 20px;">
+        {% for emp in lista_tarea.empleado.all %}
+        <li>{{ emp.nombre }} {{ emp.apellidos }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <span style="color: #777;">No hay empleados asignados.</span>
+    {% endif %}
     </p>
+
+    <button id="toggleNotasBtn">Mostrar notas</button>
+
+    <div id="notas" style="display:none; margin-top: 10px; border: 1px solid #ccc; padding: 10px;">
+        <strong>Notas:</strong>
+        <p>{{ lista_tarea.notas }}</p>
+    </div>
+
 
     <div style="margin-top: 30px;">
         <a href="{% url 'borrar_tarea' lista_tarea.id %}" class="boton-accion boton-borrar">Borrar tarea</a>
         <a href="{% url 'modificar_tarea' lista_tarea.id %}" class="boton-accion boton-editar">Editar tarea</a>
     </div>
 </section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/mostrarOcultar.js' %}"></script>
 {% endblock %}
