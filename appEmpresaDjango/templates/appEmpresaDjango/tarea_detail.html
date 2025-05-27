@@ -5,11 +5,11 @@
     <h1 class="titulo-detalle">{{ lista_tarea.nombre }}</h1>
 
     <p><strong>Pertenece al proyecto: </strong> {{ lista_tarea.proyecto }}</p>
-    <p><strong>Descripción: </strong> {{ lista_tarea.descripcion }}</p>
-    <p><strong>Fecha de inicio: </strong> {{ lista_tarea.fecha_inicio }}</p>
-    <p><strong>Fecha de fin: </strong> {{ lista_tarea.fecha_fin }}</p>
-    <p><strong>Prioridad: </strong> {{ lista_tarea.prioridad }}</p>
-    <p><strong>Estado: </strong> {{ lista_tarea.estado }}</p>
+    {#<p><strong>Descripción: </strong> {{ lista_tarea.descripcion }}</p>#}
+    {# <p><strong>Fecha de inicio: </strong> {{ lista_tarea.fecha_inicio }}</p> #}
+    {# <p><strong>Fecha de fin: </strong> {{ lista_tarea.fecha_fin }}</p> #}
+    {# <p><strong>Prioridad: </strong> {{ lista_tarea.prioridad }}</p> #}
+    {# <p><strong>Estado: </strong> {{ lista_tarea.estado }}</p> #}
 
     <p><strong>Empleados:</strong>
         {% if lista_tarea.empleado.all %}
@@ -22,6 +22,11 @@
     <span style="color: #777;">No hay empleados asignados.</span>
     {% endif %}
     </p>
+    <button id="cargarDetallesBtn" data-tarea-id="{{ lista_tarea.id }}">Cargar detalles ampliados</button>
+
+    <div id="detallesApi" class="oculto"></div>
+ 
+    </div>
 
     <button id="toggleNotasBtn">Mostrar notas</button>
 
@@ -40,4 +45,5 @@
 
 {% block scripts %}
 <script src="{% static 'js/mostrarOcultar.js' %}"></script>
+<script src="{% static 'js/cargarDetalles.js' %}"></script>
 {% endblock %}

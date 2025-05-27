@@ -104,4 +104,17 @@
     background-color: #0275d8;
 }
 
+.oculto {
+    display: none;
+}
 
+.detallesApiVisible {
+    display: block;
+    margin-top: 15px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.error {
+    color: red;
+}

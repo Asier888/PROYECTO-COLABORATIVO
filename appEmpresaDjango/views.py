@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import DetailView, ListView, CreateView, DeleteView, UpdateView
+from django.views.generic import DetailView, ListView, CreateView, DeleteView, UpdateView, View
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import JsonResponse
+
 
 from .models import Cliente, Empleado, Tarea, Proyecto
 from .forms import EmpleadoFormulario, ClienteFormulario, ProyectoFormulario, TareaFormulario
@@ -145,3 +147,17 @@ class UpdateProyectoView(LoginRequiredMixin, UpdateView):
     login_url = '/login/'
 
 
+class TareaDetalleAPI(LoginRequiredMixin, View):
+    def get(self, request, pk):
+        try:
+            tarea = Tarea.objects.get(pk=pk)
+            data = {
+                'descripcion': tarea.descripcion,
+                'fecha_inicio': tarea.fecha_inicio.strftime('%Y-%m-%d'),
+                'fecha_fin': tarea.fecha_fin.strftime('%Y-%m-%d'),
+                'prioridad': tarea.prioridad,
+                'estado': tarea.estado,
+            }
+            return JsonResponse(data)
+        except Tarea.DoesNotExist:
+            return JsonResponse({'error': 'Tarea no encontrada'}, status=404)

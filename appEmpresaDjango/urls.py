@@ -7,7 +7,7 @@ from .views import RegistroUsuarioView
 urlpatterns = [
     path('', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
     path('inicio/', views.index, name='index'),
-
+    path('api/tarea/<int:pk>/', views.TareaDetalleAPI.as_view(), name='api_detalle_tarea'),
     
     path('lista_cliente', views.ListClienteView.as_view(), name='lista_cliente'),
     path('<int:pk>/detalles_cliente', views.DetailClienteView.as_view(), name='detalles_cliente'),
