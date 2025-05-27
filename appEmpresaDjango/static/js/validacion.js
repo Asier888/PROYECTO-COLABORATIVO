@@ -4,8 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
   form.addEventListener('submit', function(event) {
     let errores = [];
 
+    if (!form.querySelector('input[name="nombre"]')) return;
+    
     const nombre = form.querySelector('input[name="nombre"]');
-    if (!nombre || nombre.value.trim() === '') {
+    if (nombre && nombre.value.trim() === '') {
       errores.push('El campo "Nombre" es obligatorio.');
     }
 

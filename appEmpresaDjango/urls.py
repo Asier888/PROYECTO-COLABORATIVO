@@ -5,8 +5,10 @@ from .views import RegistroUsuarioView
 
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
+    path('inicio/', views.index, name='index'),
 
+    
     path('lista_cliente', views.ListClienteView.as_view(), name='lista_cliente'),
     path('<int:pk>/detalles_cliente', views.DetailClienteView.as_view(), name='detalles_cliente'),
     path('<int:pk>/borrar_cliente', views.DeleteClienteView.as_view(), name='borrar_cliente'),

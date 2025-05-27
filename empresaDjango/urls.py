@@ -26,6 +26,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('deustotil/', include ('appEmpresaDjango.urls')),
 
+    path('', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
+
     path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(next_page='index'), name='logout'),
     path('registro/', RegistroUsuarioView.as_view(), name='registro'),
