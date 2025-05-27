@@ -5,11 +5,23 @@
     <h1>Información tarea:</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.nombre.label_tag }} {{ form.nombre }}
+        {{ form.descripcion.label_tag }} {{ form.descripcion }}
+        {{ form.fecha_inicio.label_tag }} {{ form.fecha_inicio }}
+        <p>
+            <label for="{{ form.duracion.id_for_label }}">Duración (días):</label>
+            {{ form.duracion }}
+        </p>
+        {{ form.fecha_fin.label_tag }} {{ form.fecha_fin }}
+        {{ form.responsable.label_tag }} {{ form.responsable }}
+        {{ form.prioridad.label_tag }} {{ form.prioridad }}
+        {{ form.estado.label_tag }} {{ form.estado }}
+        {{ form.notas.label_tag }} {{ form.notas }}
         <input type="submit" value="Guardar">
     </form>
-<section>
+</section>
 {% endblock %}
 {% block scripts %}
 <script src="{% static 'js/validacion.js' %}"></script>
+<script src="{% static 'js/autocalculo.js' %}"></script>
 {% endblock %}

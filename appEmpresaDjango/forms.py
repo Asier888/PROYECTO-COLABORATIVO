@@ -12,6 +12,8 @@ class EmpleadoFormulario(forms.ModelForm):
         fields = '__all__'
 
 class TareaFormulario(forms.ModelForm):
+    duracion = forms.IntegerField(label='Duración (días)', required=False, min_value=0)
+    
     class Meta:
         model = Tarea
         fields = '__all__'
