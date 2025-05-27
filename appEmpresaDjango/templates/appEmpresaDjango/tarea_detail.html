@@ -12,9 +12,9 @@
     {# <p><strong>Estado: </strong> {{ lista_tarea.estado }}</p> #}
 
     <p><strong>Empleados:</strong>
-        {% if lista_tarea.empleado.all %}
+        {% if lista_tarea.empleados.all %}
     <ul style="padding-left: 20px;">
-        {% for emp in lista_tarea.empleado.all %}
+        {% for emp in lista_tarea.empleados.all %}
         <li>{{ emp.nombre }} {{ emp.apellidos }}</li>
         {% endfor %}
     </ul>

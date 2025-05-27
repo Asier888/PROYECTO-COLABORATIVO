@@ -3,13 +3,13 @@
 <section id="contenido" class="detalle-contenedor">
     <h1 class="titulo-detalle">{{ lista_cliente.nombre }} {{ lista_cliente.apellidos }}</h1>
 
-    <p><strong>Email:</strong> 
+    <p><strong>Email:</strong>
         <a href="mailto:{{ lista_cliente.email }}" class="link-lista">
             {{ lista_cliente.email }}
         </a>
     </p>
 
-    <p><strong>Teléfono:</strong> 
+    <p><strong>Teléfono:</strong>
         <a href="tel:{{ lista_cliente.telefono }}" class="link-lista">
             {{ lista_cliente.telefono }}
         </a>
@@ -17,16 +17,16 @@
 
     <p><strong>Proyectos asignados:</strong></p>
     <ul style="padding-left: 20px;">
-        {% for proyecto in cliente.proyecto_set.all %}
-            <li>
-                <a href="{% url 'detalles_proyecto' proyecto.id %}" class="link-lista">
-                    {{ proyecto.nombre }}
-                </a>
-            </li>
+        {% for proyecto in lista_cliente.proyectos.all %}
+        <li>
+            <a href="{% url 'detalles_proyecto' proyecto.id %}" class="link-lista">
+                {{ proyecto.nombre }}
+            </a>
+        </li>
         {% empty %}
-            <li class="mensaje-vacio">
-                No tiene ningún proyecto asignado. Vuelve cuando tenga uno.
-            </li>
+        <li class="mensaje-vacio">
+            No tiene ningún proyecto asignado. Vuelve cuando tenga uno.
+        </li>
         {% endfor %}
     </ul>
 

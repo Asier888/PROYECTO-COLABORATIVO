@@ -49,7 +49,7 @@ class Tarea(models.Model):
     descripcion = models.TextField()
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField()
-    responsable = models.ForeignKey(Empleado, on_delete=models.SET_NULL, null=True, blank=True)
+    empleados = models.ManyToManyField(Empleado,blank=True, related_name='tareas')
     prioridad = models.CharField(max_length=10, choices=PRIORIDAD_CHOICES)
     estado = models.CharField(max_length=15, choices=ESTADO_CHOICES)
     notas = models.TextField(blank=True)
