@@ -16,7 +16,7 @@
     </p>
 
     <p><strong>Proyectos asignados:</strong></p>
-    <ul style="padding-left: 20px;">
+    <ul class="lista1">
         {% for proyecto in lista_cliente.proyectos.all %}
         <li>
             <a href="{% url 'detalles_proyecto' proyecto.id %}" class="link-lista">
@@ -30,7 +30,7 @@
         {% endfor %}
     </ul>
 
-    <div style="margin-top: 30px;">
+    <div class="acciones">
         <a href="{% url 'modificar_cliente' lista_cliente.id %}" class="boton-accion boton-editar">Modificar Cliente</a>
         <a href="{% url 'borrar_cliente' lista_cliente.id %}" class="boton-accion boton-borrar">Borrar Cliente</a>
     </div>

@@ -19,7 +19,7 @@
         {% endfor %}
     </ul>
     {% else %}
-    <span style="color: #777;">No hay empleados asignados.</span>
+    <span class="lista1">No hay empleados asignados.</span>
     {% endif %}
     </p>
     <button id="cargarDetallesBtn" data-tarea-id="{{ lista_tarea.id }}">Cargar detalles ampliados</button>
@@ -36,7 +36,7 @@
     </div>
 
 
-    <div style="margin-top: 30px;">
+    <div  class="acciones">
         <a href="{% url 'borrar_tarea' lista_tarea.id %}" class="boton-accion boton-borrar">Borrar tarea</a>
         <a href="{% url 'modificar_tarea' lista_tarea.id %}" class="boton-accion boton-editar">Editar tarea</a>
     </div>

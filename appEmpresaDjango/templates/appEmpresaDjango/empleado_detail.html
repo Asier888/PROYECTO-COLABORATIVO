@@ -9,15 +9,15 @@
     <p><strong>Número de teléfono:</strong> {{ lista_empleado.telefono }}</p>
 
     <p><strong>Tareas asignadas:</strong></p>
-    <ul style="padding-left: 20px;">
+    <ul class="lista1">
         {% for lista_tarea in lista_empleado.tareas.all %}
             <li><a href="{% url 'detalles_tarea' lista_tarea.pk %}">{{ lista_tarea.nombre }}</a></li>
         {% empty %}
-            <li style="color: #777;">No se le ha asignado ninguna tarea. Vuelva cuando le asignen una.</li>
+            <li class="mensaje-vacio">No se le ha asignado ninguna tarea. Vuelva cuando le asignen una.</li>
         {% endfor %}
     </ul>
 
-    <div style="margin-top: 30px;">
+    <div class="acciones">
         <a href="{% url 'borrar_empleado' lista_empleado.id %}" class="boton-accion boton-borrar">Borrar empleado</a>
         <a href="{% url 'modificar_empleado' lista_empleado.id %}" class="boton-accion boton-editar">Modificar empleado</a>
     </div>

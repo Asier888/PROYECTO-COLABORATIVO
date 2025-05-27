@@ -4,7 +4,7 @@
 <section id="contenido" class="seccion-contenido">
     <h2 class="titulo-seccion">Empleados</h2>
 
-    <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
+    <ul class="lista1">
         {% for empleado in object_list %}
         <li class="item-lista">
             <a href="{% url 'detalles_empleado' empleado.id %}" class="link-lista">

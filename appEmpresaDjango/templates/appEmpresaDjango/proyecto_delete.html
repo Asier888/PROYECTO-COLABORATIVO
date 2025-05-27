@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-<section id="contenido" class="detalle-contenedor">
-    <h1 class="titulo-detalle">¿Quiere eliminar el siguiente proyecto: "{{ lista_proyecto.nombre }}"?</h1>
+<section id="contenido" class="borrar1">
+    <h1 class="titulo-detalle">¿Quiere eliminar el siguiente proyecto?</h1>
 
-    <form method="post" style="margin-top: 30px; display: flex; gap: 15px;">
+    <form method="post" class="form-eliminar">
         {% csrf_token %}
         <button type="submit" class="boton-accion boton-borrar">Sí quiero, eliminar</button>
         <a href="{% url 'lista_proyecto' %}" class="boton-accion boton-editar">Cancelar eliminación del proyecto</a>

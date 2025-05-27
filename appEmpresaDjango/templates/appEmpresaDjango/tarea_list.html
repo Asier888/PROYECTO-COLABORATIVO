@@ -22,7 +22,7 @@
 
         <button type="submit">Buscar</button>
     </form>
-    <ul style="list-style: none; padding: 0; margin-bottom: 35px;">
+    <ul class="lista1">
         {% for lista_tarea in object_list %}
         <li class="item-lista">
             <a href="{% url 'detalles_tarea' lista_tarea.id %}" class="link-lista">

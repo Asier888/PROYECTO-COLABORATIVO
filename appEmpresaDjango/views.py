@@ -37,6 +37,7 @@ class CreateClienteView(LoginRequiredMixin, CreateView):
 
 class DeleteClienteView(LoginRequiredMixin, DeleteView):
     model = Cliente
+    template_name = 'appEmpresaDjango/cliente_delete.html'
     success_url = reverse_lazy('lista_cliente')
     login_url = '/login/'
 
@@ -113,6 +114,7 @@ class CreateTareaView(LoginRequiredMixin, CreateView):
 
 class DeleteTareaView(LoginRequiredMixin, DeleteView):
     model = Tarea
+    template_name = 'appEmpresaDjango/tarea_delete.html'
     success_url = reverse_lazy('lista_tarea')
     login_url = '/login/'
 
@@ -142,6 +144,7 @@ class CreateProyectoView(LoginRequiredMixin, CreateView):
 
 class DeleteProyectoView(LoginRequiredMixin, DeleteView):
     model = Proyecto
+    template_name = 'appEmpresaDjango/proyecto_delete.html'
     success_url = reverse_lazy('lista_proyecto')
     login_url = '/login/'
 

@@ -10,7 +10,7 @@
     <p><strong>Presupuesto:</strong> {{ lista_proyecto.presupuesto }}</p>
     <p><strong>Cliente:</strong> {{ lista_proyecto.cliente }}</p>
 
-    <div style="margin-top: 30px;">
+    <div class="acciones">
         <a href="{% url 'borrar_proyecto' lista_proyecto.id %}" class="boton-accion boton-borrar">Borrar proyecto</a>
         <a href="{% url 'modificar_proyecto' lista_proyecto.id %}" class="boton-accion boton-editar">Editar proyecto</a>
     </div>
