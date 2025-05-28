@@ -1,3 +1,5 @@
+# Definición de modelos para Cliente, Empleado, Proyecto y Tarea.
+
 from django.db import models
 
 class Cliente(models.Model):

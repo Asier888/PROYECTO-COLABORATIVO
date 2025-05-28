@@ -1,3 +1,6 @@
+// Script que calcula la fecha de finalización automáticamente 
+// basado en la fecha de inicio y una duración en días.
+
 window.onload = function () {
     var fechaInicioInput = document.getElementsByName('fecha_inicio')[0];
     var duracionInput = document.getElementsByName('duracion')[0];

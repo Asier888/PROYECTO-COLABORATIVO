@@ -1,3 +1,5 @@
+// Validación básica de formulario al enviarse:
+
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.querySelector('form');
 

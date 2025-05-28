@@ -1,3 +1,6 @@
+# Configuración del panel de administración para registrar los modelos:
+# Cliente, Empleado, Proyecto y Tarea en el admin de Django.
+
 from django.contrib import admin
 from .models import Cliente, Empleado, Proyecto, Tarea
 

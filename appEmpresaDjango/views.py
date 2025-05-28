@@ -1,3 +1,5 @@
+# Vistas de la aplicación:
+
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView, CreateView, DeleteView, UpdateView, View

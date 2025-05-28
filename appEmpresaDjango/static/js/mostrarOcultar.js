@@ -1,3 +1,5 @@
+// Script para alternar la visibilidad de una sección de notas
+
 document.addEventListener('DOMContentLoaded', function() {
     const btn = document.getElementById('toggleNotasBtn');
     const notas = document.getElementById('notas');

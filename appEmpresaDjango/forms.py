@@ -1,3 +1,5 @@
+# Formularios basados en modelos para Cliente, Empleado, Proyecto y Tarea.
+
 from django import forms
 from.models import Cliente, Empleado, Tarea, Proyecto
 

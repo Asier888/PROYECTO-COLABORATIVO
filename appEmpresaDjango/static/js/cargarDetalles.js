@@ -1,3 +1,5 @@
+// Script para mostrar detalles de una tarea usando una petición a la API
+
 document.addEventListener('DOMContentLoaded', function() {
     const boton = document.getElementById('cargarDetallesBtn');
     const contenedor = document.getElementById('detallesApi');
