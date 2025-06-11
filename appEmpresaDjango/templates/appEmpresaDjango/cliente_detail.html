@@ -5,6 +5,12 @@
 <section id="contenido" class="detalle-contenedor">
     <h1 class="titulo-detalle">{{ lista_cliente.nombre }}</h1>
 
+    <p><strong>Dirección:</strong>
+        <a href="dir:{{ lista_cliente.direccion }}" class="link-lista">
+            {{ lista_cliente.direccion }}
+        </a>
+    </p>
+
     <p><strong>Email:</strong>
         <a href="mailto:{{ lista_cliente.email }}" class="link-lista">
             {{ lista_cliente.email }}
