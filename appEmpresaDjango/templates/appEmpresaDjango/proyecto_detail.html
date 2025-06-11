@@ -11,6 +11,15 @@
     <p><strong>Fecha de fin:</strong> {{ lista_proyecto.fecha_fin }}</p>
     <p><strong>Presupuesto:</strong> {{ lista_proyecto.presupuesto }}</p>
     <p><strong>Cliente:</strong> {{ lista_proyecto.cliente }}</p>
+     <p><strong>Responsables:</strong></p>
+     
+    <ul>
+        {% for empleado in lista_proyecto.responsables.all %}
+            <li>{{ empleado.nombre }} {{ empleado.apellidos }}</li>
+        {% empty %}
+            <li>No hay responsables asignados.</li>
+        {% endfor %}
+    </ul>
 
     <div class="acciones">
         <a href="{% url 'borrar_proyecto' lista_proyecto.id %}" class="boton-accion boton-borrar">Borrar proyecto</a>

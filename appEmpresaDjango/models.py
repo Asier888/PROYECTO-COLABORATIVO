@@ -28,6 +28,8 @@ class Proyecto(models.Model):
     fecha_fin = models.DateField()
     presupuesto = models.DecimalField(max_digits=10, decimal_places=2)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, related_name='proyectos')
+    responsables = models.ManyToManyField(Empleado, blank=True, related_name="proyectos_responsables")
+
 
     def __str__(self):
         return self.nombre
@@ -55,6 +57,6 @@ class Tarea(models.Model):
     prioridad = models.CharField(max_length=10, choices=PRIORIDAD_CHOICES)
     estado = models.CharField(max_length=15, choices=ESTADO_CHOICES)
     notas = models.TextField(blank=True)
-
+    
     def __str__(self):
         return self.nombre

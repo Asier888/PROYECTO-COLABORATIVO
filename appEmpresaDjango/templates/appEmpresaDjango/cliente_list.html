@@ -10,7 +10,7 @@
             {% for lista_cliente in object_list %}
             <li class="item-lista">
                 <a href="{% url 'detalles_cliente' lista_cliente.id %}" class="link-lista">
-                    {{ lista_cliente.nombre }} {{ lista_cliente.apellidos }} ({{ lista_cliente.dni }})
+                    {{ lista_cliente.nombre }}
                 </a>
             </li>
             {% empty %}
