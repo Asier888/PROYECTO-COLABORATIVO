@@ -24,17 +24,34 @@
 
         <button type="submit">Buscar</button>
     </form>
-    <ul class="lista1">
-        {% for lista_tarea in object_list %}
-        <li class="item-lista">
-            <a href="{% url 'detalles_tarea' lista_tarea.id %}" class="link-lista">
-                {{ lista_tarea.nombre }} - Estado: {{ lista_tarea.estado }} - Prioridad: {{ lista_tarea.prioridad }}   
-            </a>
-        </li>
-        {% empty %}
-        <li class="mensaje-vacio">No hay tareas registradas.</li>
-        {% endfor %}
-    </ul>
+    <div class="tabla-contenedor">
+    <table class="tabla-datos">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Estado</th>
+                <th>Prioridad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lista_tarea in object_list %}
+            <tr>
+                <td>{{ lista_tarea.nombre }}</td>
+                <td>{{ lista_tarea.estado }}</td>
+                <td>{{ lista_tarea.prioridad }}</td>
+                <td>
+                    <a href="{% url 'detalles_tarea' lista_tarea.id %}" class="boton-ver">Ver</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" class="mensaje-vacio">No hay tareas registradas.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
     <a href="{% url 'crear_tarea' %}" class="boton-nuevo">
         + Crear nueva tarea

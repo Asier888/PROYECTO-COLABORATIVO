@@ -5,17 +5,34 @@
 <section id="contenido" class="seccion-contenido">
     <h2 class="titulo-seccion">Proyectos:</h2>
 
-    <ul class="lista1">
-        {% for lista_proyecto in object_list %}
-        <li class="item-lista">
-            <a href="{% url 'detalles_proyecto' lista_proyecto.id %}" class="link-lista">
-                {{ lista_proyecto.nombre }}
-            </a>
-        </li>
-        {% empty %}
-        <li class="mensaje-vacio">No hay proyectos registrados.</li>
-        {% endfor %}
-    </ul>
+   <div class="tabla-contenedor">
+    <table class="tabla-datos">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Cliente</th>
+                <th>Presupuesto</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lista_proyecto in object_list %}
+            <tr>
+                <td>{{ lista_proyecto.nombre }}</td>
+                <td>{{ lista_proyecto.cliente }}</td>
+                <td>{{ lista_proyecto.presupuesto }}</td>
+                <td>
+                    <a href="{% url 'detalles_proyecto' lista_proyecto.id %}" class="boton-ver">Ver</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" class="mensaje-vacio">No hay proyectos registrados.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
     <a href="{% url 'crear_proyecto' %}" class="boton-nuevo">
         + Crear nuevo proyecto

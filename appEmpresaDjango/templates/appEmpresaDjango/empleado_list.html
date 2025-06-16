@@ -6,17 +6,36 @@
 <section id="contenido" class="seccion-contenido">
     <h2 class="titulo-seccion">Empleados</h2>
 
-    <ul class="lista1">
-        {% for empleado in object_list %}
-        <li class="item-lista">
-            <a href="{% url 'detalles_empleado' empleado.id %}" class="link-lista">
-                {{ empleado.nombre }} {{ empleado.apellidos }}
-            </a>
-        </li>
-        {% empty %}
-        <li class="mensaje-vacio">No hay empleados registrados.</li>
-        {% endfor %}
-    </ul>
+   <div class="tabla-contenedor">
+    <table class="tabla-datos">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>DNI</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lista_empleado in object_list %}
+            <tr>
+                <td>{{ lista_empleado.nombre }} {{ lista_empleado.apellidos }}</td>
+                <td>{{ lista_empleado.dni }}</td>
+                <td>{{ lista_empleado.email }}</td>
+                <td>{{ lista_empleado.telefono }}</td>
+                <td>
+                    <a href="{% url 'detalles_empleado' lista_empleado.id %}" class="boton-ver">Ver</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="mensaje-vacio">No hay empleados registrados.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
     <a href="{% url 'crear_empleado' %}" class="boton-nuevo">
         + Crear nuevo empleado
