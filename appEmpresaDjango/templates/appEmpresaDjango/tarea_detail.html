@@ -15,7 +15,7 @@
 
     <p><strong>Empleados:</strong>
         {% if lista_tarea.empleados.all %}
-    <ul style="padding-left: 20px;">
+    <ul class="lista-empleados">
         {% for emp in lista_tarea.empleados.all %}
         <li>{{ emp.nombre }} {{ emp.apellidos }}</li>
         {% endfor %}
@@ -32,7 +32,7 @@
 
     <button id="toggleNotasBtn">Mostrar notas</button>
 
-    <div id="notas" style="display:none; margin-top: 10px; border: 1px solid #ccc; padding: 10px;">
+    <div id="notas" class="notas-ocultas oculto">
         <strong>Notas:</strong>
         <p>{{ lista_tarea.notas }}</p>
     </div>

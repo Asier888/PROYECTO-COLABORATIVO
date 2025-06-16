@@ -500,6 +500,24 @@
     background-color: #025aa5;
 }
 
+.bloque-centrado
+{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.lista-empleados
+{
+    padding-left: 20px;
+}
+
+.notas-ocultas
+{
+    display:none; 
+    margin-top: 10px; 
+    border: 1px solid #ccc; 
+    padding: 10px;
+}
 @media (max-width: 600px) {
     .navegacion {
         flex-direction: column;

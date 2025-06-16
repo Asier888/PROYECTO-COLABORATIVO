@@ -60,11 +60,6 @@ class DetailEmpleadoView(LoginRequiredMixin, DetailView):
     context_object_name = 'lista_empleado'
     login_url = '/login/'
 
-def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['tareas'] = self.object.tareas.all()
-        return context
-
 class CreateEmpleadoView(LoginRequiredMixin, CreateView):
     model = Empleado
     form_class = EmpleadoFormulario
