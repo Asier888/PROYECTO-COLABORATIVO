@@ -499,3 +499,19 @@
 .boton-ver:hover {
     background-color: #025aa5;
 }
+
+@media (max-width: 600px) {
+    .navegacion {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .botones {
+        width: 90%;
+        text-align: center;
+        padding: 12px 0;
+        font-size: 18px;
+    }
+}
